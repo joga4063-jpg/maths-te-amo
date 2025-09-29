@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo Gyökeres</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: white;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #menu, #game {
+      display: none;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #28a745;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    #game {
+      background: url("https://cdn.discordapp.com/attachments/1421848925702193333/1422337243770781836/copilot_image_1759182013084.jpg?ex=68dc4e48&is=68dafcc8&hm=16dd2dba1627ac453e2ee40ac30b0423fcdb092c71dee0d7e8794e4f3331154b&") no-repeat center center/cover;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #game h1 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <h1>🎮 Menu do Jogo</h1>
+    <button onclick="startGame()">Start</button>
+  </div>
+
+  <div id="game">
+    <h1>VENDE O GYÖKERES PRA INTER</h1>
+  </div>
+
+  <script>
+    document.getElementById("menu").style.display = "block";
+
+    function startGame() {
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("game").style.display = "flex";
+    }
+  </script>
+</body>
+</html>
