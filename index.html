@@ -4,72 +4,93 @@
   <meta charset="UTF-8">
   <title>Jogo Gyökeres</title>
   <style>
-    body {
+    * { margin:0; padding:0; box-sizing: border-box; }
+    body, html {
+      height: 100%;
       font-family: Arial, sans-serif;
-      text-align: center;
-      background: #111;
-      color: white;
-      margin: 0;
-      height: 100vh;
+    }
+    body {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: white;
+      flex-direction: column;
+    }
+    #menu, #game, #final {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
       justify-content: center;
       align-items: center;
       flex-direction: column;
     }
-
-    #menu, #game {
-      display: none;
+    #menu {
+      display: flex;
     }
-
     button {
       padding: 12px 24px;
       font-size: 18px;
-      background: #28a745;
       border: none;
       border-radius: 8px;
-      color: white;
       cursor: pointer;
+      margin-top: 20px;
       transition: 0.2s;
     }
-
-    button:hover {
-      background: #218838;
-    }
-
-    #game {
-      background: url("https://cdn.discordapp.com/attachments/1421848925702193333/1422337243770781836/copilot_image_1759182013084.jpg?ex=68dc4e48&is=68dafcc8&hm=16dd2dba1627ac453e2ee40ac30b0423fcdb092c71dee0d7e8794e4f3331154b&") no-repeat center center/cover;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #game h1 {
-      font-size: 3rem;
+    button:hover { opacity: 0.8; }
+    #startBtn { background: #28a745; color: white; }
+    #okBtn { background: #007bff; color: white; }
+    #game h1, #final h1 {
       background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 12px;
+      text-align: center;
+    }
+    #final h1 { font-size: 4rem; }
+    #game {
+      display: flex;
+      background: url("https://cdn.discordapp.com/attachments/1421848925702193333/1422337243770781836/copilot_image_1759182013084.jpg?ex=68dc4e48&is=68dafcc8&hm=16dd2dba1627ac453e2ee40ac30b0423fcdb092c71dee0d7e8794e4f3331154b&") no-repeat center center/cover;
+      flex-direction: column;
     }
   </style>
 </head>
 <body>
+  <!-- MENU -->
   <div id="menu">
     <h1>🎮 Menu do Jogo</h1>
-    <button onclick="startGame()">Start</button>
+    <button id="startBtn">Start</button>
   </div>
 
+  <!-- GAME -->
   <div id="game">
     <h1>VENDE O GYÖKERES PRA INTER</h1>
+    <button id="okBtn">Tá</button>
+  </div>
+
+  <!-- FINAL -->
+  <div id="final">
+    <h1>TE AMO MATHS ♥️♥️</h1>
   </div>
 
   <script>
-    document.getElementById("menu").style.display = "block";
+    const menu = document.getElementById("menu");
+    const game = document.getElementById("game");
+    const final = document.getElementById("final");
+    const startBtn = document.getElementById("startBtn");
+    const okBtn = document.getElementById("okBtn");
 
-    function startGame() {
-      document.getElementById("menu").style.display = "none";
-      document.getElementById("game").style.display = "flex";
-    }
+    startBtn.addEventListener("click", () => {
+      menu.style.display = "none";
+      game.style.display = "flex";
+    });
+
+    okBtn.addEventListener("click", () => {
+      game.style.display = "none";
+      final.style.display = "flex";
+    });
   </script>
 </body>
 </html>
